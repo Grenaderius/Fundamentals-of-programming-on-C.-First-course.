@@ -1,0 +1,38 @@
+
+
+#include <stdio.h>
+#include <time.h>
+#include <math.h>
+
+
+void main()
+{
+    int A[6][6], sum = 0, countL = 0, n = -1;
+    //int randoom =  -50 + rand()%100;
+    int srand();
+    int s = srand(time(NULL)); //srand(1); - memerize values thet are used before, srand(time(NULL)); - everytime reloads values of rand
+    int rand();
+    
+    for(int i = 0; i<6; i++){
+        for(int l = 0; l<6; l++){
+            A[i][l] = -50 + rand()%100;
+            printf("%2.0i\t", A[i][l]);
+            
+            if(i==l && A[i][l]<0){
+                  n = i;
+                  countL++;
+            }
+        }
+       
+       if(n==i){
+           for(int o = 0; o<6; o++){
+                sum = sum + A[i][o];
+           }
+       }
+        printf("\n\n");
+    }
+    printf("sum = %i\ncount of lines = %i", sum, countL);
+
+    
+    
+}
