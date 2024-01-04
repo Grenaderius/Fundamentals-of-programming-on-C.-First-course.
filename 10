@@ -1,0 +1,85 @@
+
+#include <stdio.h>
+#include <time.h>
+
+void main()
+{
+    int M[4][4], T[3][3], sumOfM, sumOfT, rand(), srand(), sumOfArray();
+    srand(time(NULL));
+    
+    //---------ARRAY M-----------
+    printf("Array M={");    
+    for(int i = 0; i<4; i++){
+        
+         if(i==0){
+            printf("{");
+        }else{
+            printf("\t {");
+        }
+        
+        for(int j = 0; j<4; j++){
+            M[i][j] = -100 + rand()%200;
+            
+            if(j<3){
+                printf(" %i,", M[i][j]);
+            }else{
+                printf(" %i", M[i][j]);
+            }
+       
+        }
+        
+        if(i<3){
+            printf("},\n\n");
+        }else{
+            printf("}");
+        }
+    }
+    printf("};");
+    
+    
+    //---------ARRAY T-----------
+    printf("\n\n\nArray T={");
+    for(int i = 0; i<3; i++){
+        
+        if(i==0){
+            printf("{");
+        }else{
+            printf("\t {");
+        }
+        
+        for(int j = 0; j<3; j++){
+            
+            T[i][j] = -100 + rand()%200;
+            
+            if(j<2){
+                printf(" %i,", T[i][j]);
+            }else{
+                printf(" %i", T[i][j]);
+            }
+        }
+        
+        if(i<2){
+            printf("},\n\n");
+        }else{
+            printf("}");
+        }
+    }
+    printf("};");
+    
+    sumOfM = sumOfArray(4, M);
+    sumOfT = sumOfArray(3, T);
+    
+    printf("\n\nsum of M = %i\nsum of T = %i", sumOfM, sumOfT);
+}
+
+int sumOfArray(int k, int array[k][k]){
+   int sum = 0;
+   
+   for(int i = 0; i<k; i++){
+       for(int j = 0; j<k; j++){
+           sum += array[i][j];
+       }
+   }
+ 
+    return sum;
+}
