@@ -1,0 +1,29 @@
+
+#include<stdio.h>
+#include<math.h>
+
+void main(){
+    
+    int Y[14], product = 1, sum = 0;
+    
+    for(int i = 0; i<14; i++){
+        printf("Please enter the %i element of the array\n", i+1);
+        scanf("%i", &Y[i]);
+    }
+    
+    for(int k = 0; k<sizeof(Y)/sizeof(Y[0]); k++){
+        
+        if(k<8){
+            sum = sum + Y[k];
+        }else{
+            
+            if((Y[k])%3==2){
+                product = product * Y[k];
+            }
+        }
+        
+    }
+    
+    printf("sum = %i\n", sum);
+    printf("product = %i", product);
+}
