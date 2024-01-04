@@ -1,0 +1,47 @@
+
+#include <stdio.h>
+
+void main()
+{
+   
+   float A[16] = {2.34, -3.42, 0.56, -3.71, 1.25, 6.37, 0.123, -45.821, 32.5, 0.94, 0.54, -1.26, 2.36, 4.32, -5.345 , 4.876}, memory = 0, A1[16];
+   int countEl = 0;
+   printf("First array\nA[] = {");
+   for(int i = 0; i<sizeof(A)/sizeof(A[0]); i++){
+       
+       if(i<sizeof(A)/sizeof(A[0])-1){
+            printf("%5.3f, ", A[i]);
+       }else{
+           printf("%5.3f", A[i]);
+       }
+       
+   }
+   printf("}\n\n");
+   
+    printf("Second array\nA1[] = {");
+   for(int k = 0; k<sizeof(A)/sizeof(A[0]); k++){
+      
+       if(A[k]<0 && countEl<2){
+          for(int j = 0; j<sizeof(A)/sizeof(A[0]); j++){
+              if(A[j]!=0 && A[j]!=memory){
+                A1[k] = A[j]; 
+                memory = A[j];
+                countEl++;
+                break;
+              }
+          } 
+       }else{
+           
+       A1[k] = A[k];
+       
+       }
+       
+       if(k<sizeof(A1)/sizeof(A1[0])-1){
+            printf("%5.3f, ", A1[k]);
+       }else{
+           printf("%5.3f", A1[k]);
+       }
+     // printf("A1 = %5.3f ", A1[k]);
+   }
+   printf("}");
+}
