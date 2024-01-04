@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+    FILE *fbw;
+    FILE *fbi;
+    char surname[20], vudav[20], lang[15], scanYear[10],  vudavProsv = (char) * "Prosvita", basic = (char) * "GW_BASIC";
+    int year, countOfBooksGWBasic = 0, k = 0;;
+    
+    fbw = fopen("B", "w");
+    fprintf(fbw, "%s\t%s\t%d\t%s\n", "Petrenko", "Prosvita", 1966, "GW_BASIC");
+    fprintf(fbw, "%s\t%s\t%d\t%s\n", "Dorm", "Crystal", 1997, "Python");
+    fprintf(fbw, "%s\t%s\t%d\t%s\n", "Poniatowskiy", "Prosvita", 1999, "Pascal");
+    fprintf(fbw, "%s\t%s\t%d\t%s\n", "Hmel", "Koraduba", 1979, "GW_BASIC");
+    fprintf(fbw, "%s\t%s\t%d\t%s\n", "Jeremi", "Nebo", 2005, "Java");
+    fprintf(fbw, "%s\t%s\t%d\t%s\n", "Lopel'", "Prosvita", 1985, "Ruby");
+    fprintf(fbw, "%s\t%s\t%d\t%s\n", "Olefar", "Prosvita", 2010, "GW_BASIC");
+    fclose(fbw);
+    
+    fbw = fopen("B", "r");
+    fbi = fopen("BI", "w");
+    
+    while(!feof(fbw)){
+        fscanf(fbw, "%s\t%s\t%s\t%s\n", surname, vudav, scanYear, lang);
+        
+        
+       
+        sscanf(scanYear, "%d", &year);
+        char vudav1 = (char)*vudav;
+        
+        //vudav1 == vudavProsv && year>1990
+        
+        if(vudav1 == vudavProsv && year>1990){
+            fprintf(fbi, "%s\t%s\t%s\t%s\n", surname, vudav, scanYear, lang);
+             printf("%s\t%s\t%s\t%s\n", surname, vudav, scanYear, lang);
+        }
+        
+        char lang1 = (char) * lang;
+        if(lang1 == basic){
+            countOfBooksGWBasic++;
+        }
+    }
+    
+    fprintf(fbi, "Count of books about GW_BASIC - %i", countOfBooksGWBasic);
+    printf("Count of books about GW_BASIC - %i", countOfBooksGWBasic);
+    
+    
+    fclose(fbw);
+    fclose(fbi);
+  
+}
