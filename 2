@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    float U, U1, T1, T2, n0, n1, k;
+    
+    U1 = 12.3;
+    T2 = 3.856;
+    n0 = 840;
+    n1 = 610;
+    
+    printf("Введіть k - ");
+    scanf("%f", &k);
+
+    T1 = T2 * sqrt(pow(n0/n1, k));
+    U = U1/(1+T1/T2);
+    
+    printf(" U = %f\n T1 = %f\n ", U, T1);
+
+}
