@@ -1,0 +1,31 @@
+
+#include <stdio.h>
+#include <time.h>
+
+void main(){
+    int X[12], min, *pX = X, rand(), srand(), *pmin = &min, flag = 0;
+    srand(time(NULL));
+     
+    printf("initial array:\n");
+    for(int i = 0; i<sizeof(X)/sizeof(X[0]); i++){
+        *(pX + i) = -50 + rand()%100;
+        printf("%i\t", *(pX + i));
+    }
+    
+    printf("\n\n");
+    *pmin = *(pX + 0);
+     
+    for(int k = 0; k<sizeof(X)/sizeof(X[0]); k++){
+        if(*pmin>*(pX+k))*pmin=*(pX+k);
+    }
+    
+   // printf("%i", *pmin);
+    
+    printf("Output array:\n");
+    for(int j = 0; j<sizeof(X)/sizeof(X[0]); j++){
+        if(flag==1)*(pX + j) = 1; 
+        if(*(pX + j)==*pmin)flag = 1;
+        printf("%i\t", *(pX + j));
+    }
+    
+}
